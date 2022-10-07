@@ -35,8 +35,9 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((prev, curr) => prev + curr.price, 0)
 
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,8 +55,12 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    //      round                       num                       fix rounding errors  to 2 decimals
+    return Math.round(((cartTotal * (1 + tax) * (1 - couponValue)) + Number.EPSILON) * 100) / 100
+}
 
-
+console.log(calcFinalPrice(100, .1, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -79,7 +84,21 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+    email address: for order updates/account setup, string, many character types,
+    first name: for billing, string, is text,
+    last name: for billing, string, is text,
+    phone number: for order updates, string, no need for calculations,
+    address: for delivery and billing, object, so address can be grouped,
+        street: string, many character types,
+        city: for billing, string, is text
+        state: for billing, string, is text
+        zip code: for delivery and billing, string, no need for calculations, potential leading zeros
+    payment information: for payment, object, so payment info can be grouped,
+        card number: string, no need for calculation
+        expiration date: array, two values needed,
+            month: number,
+            year: number,
+        cvv, string, no need for calculation
 */
 
 /*
@@ -88,3 +107,20 @@ const cart = [
 */
 
 //CODE HERE
+const customer = {
+    email: 'jarclyde@gmail.com',
+    firstName: 'Jared',
+    lastName: 'Clyde',
+    phone: '8015924866',
+    address: {
+        street: '5991 S. Sultan Cir',
+        city: 'Murray',
+        state: 'Utah',
+        zip: '84107',
+    },
+    payment: {
+        cardNum: '1111111111111111',
+        expiration: [12, 30],
+        cvv: '111',
+    }
+}

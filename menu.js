@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-
+const pizza = {
+    name: 'Philly cheese steak',
+    price: 8.99,
+    category: 'Pan',
+    popularity: 2,
+    rating: 8.9,
+    tags: ['white sauce', 'meat', 'spicy']
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +70,8 @@
 */
 
 //CODE HERE
-
+const {price: pizzaPrice} = pizza
+console.log(pizzaPrice)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@
 */
 
 //CODE HERE
-
+const {category: pizzaCat} = pizza
+console.log(pizzaCat)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +97,33 @@
 */
 
 //CODE HERE
-
-
+// const foodArr = ['Classic', 10.99, 'Stuffed Crust', 4.9, 4.9, ['pepperoni', 'olives', 'red sauce']]
+const foodArr = [
+    {
+        name: 'Philly cheese steak',
+        price: 8.99,
+        category: 'Pan',
+        popularity: 2,
+        rating: 8.8,
+        tags: ['white sauce', 'meat', 'spicy', 'veggies']
+    },
+    {
+        name: 'Classic',
+        price: 10.99,
+        category: 'Stuffed Crust',
+        popularity: 1,
+        rating: 8.9,
+        tags: ['red sauce', 'meat']
+    },
+    {
+        name: 'Hawaiian',
+        price: 6.99,
+        category: 'Hand-tossed',
+        popularity: 3,
+        rating: 8.6,
+        tags: ['red sauce', 'meat', 'fruit']
+    }
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,9 +139,9 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter((pie) => pie.tags.includes('red sauce'))
 
-
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,7 +183,22 @@
 */
 
 //CODE HERE
-
+function filterByProperty(property, number, type) {
+    const filteredArray = foodArr.filter((pie) => {
+        if (type = 'above') {
+            return property === 'rating' ? pie.rating > number
+                :property === 'popularity' ? pie.popularity > number
+                :property === 'price' ? pie.price > number
+                :undefined
+        } else {
+            return property === 'rating' ? pie.rating < number
+                :property === 'popularity' ? pie.popularity < number
+                :property === 'price' ? pie.price < number
+                :undefined
+        }
+    })
+    return filteredArray
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +208,6 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('rating', 8.7, 'above'))
+
+//This problem gave me an anurism
