@@ -143,6 +143,12 @@ const filteredFood = foodArr.filter((pie) => pie.tags.includes('red sauce'))
 
 console.log(filteredFood)
 
+// function filteredFood(tag) {
+//     return foodArr.filter((pie) => pie.tags.includes(tag))
+// }
+
+// console.log('The pies that feature meat are', filteredFood('meat'))
+
 //////////////////PROBLEM 5////////////////////
 /* 
     Now let's write a function that's a little
